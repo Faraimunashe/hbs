@@ -53,7 +53,12 @@
                 </a>
             </li>
         @else
-
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <span class="menu-title">Consultations</span>
+                    <i class="mdi mdi-text-to-speech menu-icon"></i>
+                </a>
+            </li>
         @endif
     </ul>
 </nav>

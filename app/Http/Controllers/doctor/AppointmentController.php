@@ -36,11 +36,12 @@ class AppointmentController extends Controller
 
         try{
             $app = new Appointment();
-            $app->consultation = $request->consultation;
+            $app->consultation_id = $request->consultation_id;
             $app->time = $request->time;
             $app->date = $request->date;
             $app->topic = $request->topic;
             $app->location = $request->location;
+            $app->status = 1;
             $app->save();
 
             return redirect()->back()->with('success', 'You successfully added appointment');

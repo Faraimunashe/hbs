@@ -90,7 +90,7 @@
                                     <td>{{$patient->dob}}</td>
                                     <td>{{$item->paid}}</td>
                                     <td>
-                                        <a href="#" class="btn btn-inverse-success btn-icon">
+                                        <a href="{{route('admin-new-consultation', $item->id)}}" class="btn btn-inverse-success btn-icon">
                                             <i class="mdi mdi-lead-pencil"></i>
                                         </a>
                                     </td>

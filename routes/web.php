@@ -31,6 +31,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
     Route::get('/admin/consultations', 'App\Http\Controllers\admin\ConsultationController@index')->name('admin-consultations');
 
+    Route::get('/admin/consultation/{id}', 'App\Http\Controllers\admin\ConsultationController@new')->name('admin-new-consultation');
+    Route::post('/admin/assign-consultation', 'App\Http\Controllers\admin\ConsultationController@assign')->name('admin-assign-consultation');
+
 });
 
 Route::group(['middleware' => ['auth', 'role:doctor']], function () {

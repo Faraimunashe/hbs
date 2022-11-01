@@ -32,7 +32,7 @@ function cons_status($num){
 }
 
 function dr_consultations(){
-    $consultations = Consultation::join('doctors', 'doctors.user_id', '=', 'consultations.doctor_id')
+    $consultations = Consultation::join('doctors', 'doctors.id', '=', 'consultations.doctor_id')
         ->join('patients', 'patients.id', '=', 'consultations.patient_id')
         ->where('doctors.user_id', Auth::id())
         ->select('consultations.id', 'consultations.status', 'consultations.created_at', 'patients.fname', 'patients.lname', 'patients.sex', 'patients.dob', 'patients.phone')

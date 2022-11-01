@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('conversations', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('consultation_id');
+            $table->integer('sender')->default(0); //0 doctor, 1 patient
+            $table->text('message');
+            $table->boolean('seen')->default(false);
             $table->timestamps();
         });
     }

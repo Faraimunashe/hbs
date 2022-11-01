@@ -50,15 +50,15 @@
                                         {{$item->sex}}
                                     </td>
                                     <td>{{$item->dob}}</td>
-                                    <td>{{$patient->phone}}</td>
+                                    <td>{{$item->phone}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-inverse-primary btn-icon">
+                                        <button type="button" class="btn btn-inverse-primary btn-sm">
                                             <i class="mdi mdi-comment-text-outline"></i>
                                         </button>
-                                        <button type="button" class="btn btn-inverse-success btn-icon">
+                                        <button type="button" class="btn btn-inverse-success btn-sm">
                                             <i class="mdi mdi-pill"></i>
                                         </button>
-                                        <a href="{{route('dr-new-appointment', [$item->id, $patient])}}" class="btn btn-inverse-info btn-icon">
+                                        <a href="{{route('dr-new-appointment', [$item->id, $patient])}}" class="btn btn-inverse-info btn-sm">
                                             <i class="mdi mdi-pin"></i>
                                         </a>
                                     </td>
