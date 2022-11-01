@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth', 'role:doctor']], function () {
 
 Route::group(['middleware' => ['auth', 'role:patient']], function () {
     Route::get('/pt/dashboard', 'App\Http\Controllers\patient\DashboardController@index')->name('pt-dashboard');
+    Route::post('/pt/apply', 'App\Http\Controllers\patient\DashboardController@apply')->name('pt-apply');
 });
 
 require __DIR__.'/auth.php';

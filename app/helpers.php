@@ -14,6 +14,10 @@ function get_patient($patient_id){
     return Patient::find($patient_id);
 }
 
+function patient($user_id){
+    return Patient::where('user_id',$user_id)->first();
+}
+
 function cons_status($num){
     $status = new stdClass();
     if($num === 0){

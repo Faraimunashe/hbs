@@ -54,4 +54,53 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Applications</h4>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th> Patient</th>
+                                <th> Gender </th>
+                                <th> DOB </th>
+                                <th> Payment </th>
+                                <th> Action </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                                $count = 0;
+                            @endphp
+                            @foreach ($applications as $item)
+                                <tr>
+                                    <td class="py-1">
+                                        @php
+                                            $patient = patient($item->user_id);
+                                            $count ++;
+                                            echo $count;
+                                        @endphp
+                                    </td>
+                                    <td> {{$patient->lname}} {{$patient->fname}} </td>
+                                    <td>
+                                        {{$patient->sex}}
+                                    </td>
+                                    <td>{{$patient->dob}}</td>
+                                    <td>{{$item->paid}}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-inverse-success btn-icon">
+                                            <i class="mdi mdi-lead-pencil"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    {{$applications->links('pagination::bootstrap-5')}}
+                </div>
+            </div>
+        </div>
+    </div>
 </x-app-layout>

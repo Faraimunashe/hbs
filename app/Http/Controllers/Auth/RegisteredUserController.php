@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Patient;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -52,6 +53,16 @@ class RegisteredUserController extends Controller
         ]);
 
         $user->attachRole('patient');
+
+        $patient = new Patient();
+        $patient->user_id = $user->id;
+        $patient->fname = $request->fname;
+        $patient->lname = $request->lname;
+        $patient->sex = $request->sex;
+        $patient->dob = $request->dob;
+        $patient->phone = $request->phone;
+        $patient->address = $request->address;
+        $patient->save();
 
         event(new Registered($user));
 
