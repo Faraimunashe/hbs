@@ -25,7 +25,7 @@
                         Total Doctors
                         <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">0</h2>
+                    <h2 class="mb-5">{{\App\Models\Doctor::count()}}</h2>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                         Total Patients
                         <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">0</h2>
+                    <h2 class="mb-5">{{\App\Models\Patient::count()}}</h2>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                         Pending Appointments
                         <i class="mdi mdi-diamond mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">0</h2>
+                    <h2 class="mb-5">{{\App\Models\Appointment::count()}}</h2>
                 </div>
             </div>
         </div>

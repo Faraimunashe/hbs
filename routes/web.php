@@ -45,11 +45,16 @@ Route::group(['middleware' => ['auth', 'role:doctor']], function () {
 
     Route::get('/dr/new-prescription/{cons_id}/{patient}', 'App\Http\Controllers\doctor\PrescriptionController@index')->name('dr-new-prescription');
     Route::post('/dr/create-prescription', 'App\Http\Controllers\doctor\PrescriptionController@create')->name('dr-create-prescription');
+
+    Route::get('/dr/schedule/{cons_id}/{patient}', 'App\Http\Controllers\doctor\ScheduleController@index')->name('dr-new-schedule');
+    Route::post('/dr/schedule', 'App\Http\Controllers\doctor\ScheduleController@create')->name('dr-create-schedule');
 });
 
 Route::group(['middleware' => ['auth', 'role:patient']], function () {
     Route::get('/pt/dashboard', 'App\Http\Controllers\patient\DashboardController@index')->name('pt-dashboard');
     Route::post('/pt/apply', 'App\Http\Controllers\patient\DashboardController@apply')->name('pt-apply');
+
+    Route::post('/pt/remind', 'App\Http\Controllers\patient\ScheduleController@remind')->name('pt-remind');
 });
 
 require __DIR__.'/auth.php';

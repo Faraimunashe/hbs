@@ -17,7 +17,7 @@
         </nav>
     </div>
     <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
+        <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Are you feeling sick?</h4>
@@ -63,6 +63,27 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Appointments</h4>
+
+                <div class="list-wrapper">
+                    <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
+                        @foreach ($appointments as $item)
+                            <li>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                    <input class="checkbox" type="checkbox"> {{$item->topic}} <strong>Date: </strong>{{$item->date}}  <strong>Time: </strong>{{$item->time}}<i class="input-helper"></i></label>
+                                </div>
+                                <i class="remove mdi mdi-close-circle-outline"></i>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+              </div>
             </div>
         </div>
     </div>

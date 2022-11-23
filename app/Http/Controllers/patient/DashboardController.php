@@ -4,6 +4,7 @@ namespace App\Http\Controllers\patient;
 
 use App\Http\Controllers\Controller;
 use App\Models\Application;
+use App\Models\Appointment;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,15 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('patient.dashboard');
+        $appointments = Appointment::join('consultations', 'consultations.id', '=', 'appointments.consultation_id')
+            ->join('patients', 'patients.id', '=', 'consultations.patient_id')
+            ->where('patients.user_id', Auth::id())
+            ->select('appointments.id', 'appointments.topic', 'appointments.time', 'appointments.date')
+            ->get();
+
+        return view('patient.dashboard', [
+            'appointments' => $appointments
+        ]);
     }
 
     public function apply(Request $request)

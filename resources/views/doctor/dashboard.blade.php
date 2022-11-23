@@ -55,9 +55,9 @@
                                         <button type="button" class="btn btn-inverse-primary btn-sm">
                                             <i class="mdi mdi-comment-text-outline"></i>
                                         </button>
-                                        <button type="button" class="btn btn-inverse-success btn-sm">
+                                        <a href="{{route('dr-new-schedule', [$item->id, $patient])}}" class="btn btn-inverse-success btn-sm">
                                             <i class="mdi mdi-pill"></i>
-                                        </button>
+                                        </a>
                                         <a href="{{route('dr-new-appointment', [$item->id, $patient])}}" class="btn btn-inverse-info btn-sm">
                                             <i class="mdi mdi-pin"></i>
                                         </a>
